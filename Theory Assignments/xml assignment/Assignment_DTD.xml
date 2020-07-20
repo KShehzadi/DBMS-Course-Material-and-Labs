@@ -1,0 +1,218 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE University [
+   <!ELEMENT  University (Course | Student | RegisteredCourses | Instructor)>
+   
+   
+   
+   <!ELEMENT Instructor (FirstName,MiddleName,LastName,Designation  )>
+   <!ATTLIST Instructor InstructorId CDATA #REQUIRED >
+   <!ELEMENT  FirstName (#PCDATA)>
+   <!ELEMENT MiddleName (#PCDATA)>
+   <!ELEMENT LastName (#PCDATA)>
+   <!ELEMENT Designation (#PCDATA)>
+   
+   
+   <!ELEMENT  Student (Name,Address,GPA)>
+   <!ELEMENT  Name (FirstName,MiddleName,LastName)>
+   <!ELEMENT  FirstName (#PCDATA)>
+    <!ELEMENT MiddleName (#PCDATA)>
+    <!ELEMENT LastName (#PCDATA)>
+    <!ELEMENT Address (City, ZipCode, District)>
+    <!ELEMENT  City (#PCDATA)>
+    <!ELEMENT  ZipCode (#PCDATA)>
+    <!ELEMENT  District (#PCDATA)>
+    <!ELEMENT GPA (#PCDATA)>
+    <!ATTLIST Student RegistrationNumber CDATA #REQUIRED>
+     
+	 <!ELEMENT  RegisteredCourses (RegistrationDate)>
+     <!ELEMENT  RegistrationDate (#PCDATA)>
+     <!ATTLIST Course CourseId IDREF #REQUIRED>
+	
+	
+	<!ELEMENT Course (CourseName,CreditHrs,ContactHrs)>
+  <!ELEMENT  CourseName (#PCDATA)>
+   <!ELEMENT  CreditHrs (#PCDATA)>
+   <!ELEMENT  ContactHrs (#PCDATA)>
+    <!ATTLIST Course CourseId CDATA #REQUIRED >
+	<!ATTLIST Instructor InstructorId IDREF #REQUIRED>
+   
+]>
+
+
+<University>
+  <Instructor InstructorId = "1">
+    <FirstName>Samyan</FirstName>
+    <MiddleName>Qayyum</MiddleName>
+    <LastName>Wahla</LastName>
+    <Designation>Lecturer</Designation>
+  </Instructor>
+
+  <Instructor InstructorId = "2">
+    <FirstName>Amjad</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Farooq</LastName>
+    <Designation>Professor</Designation>
+  </Instructor>
+
+  <Instructor InstructorId = "3">
+    <FirstName>Hina</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Khalid</LastName>
+    <Designation>Professor</Designation>
+  </Instructor>
+
+  <Instructor InstructorId = "4">
+    <FirstName>Irfan</FirstName>
+    <MiddleName>Ullah</MiddleName>
+    <LastName>Ch</LastName>
+    <Designation>Professor</Designation>
+  </Instructor>
+
+  <Instructor InstructorId = "5">
+    <FirstName>Muhammad</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Afzal</LastName>
+    <Designation>Professor</Designation>
+  </Instructor>
+
+  <Instructor InstructorId = "6">
+    <FirstName>Atif</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Warraich</LastName>
+    <Designation>Lecturer</Designation>
+  </Instructor>
+
+  <Student>
+    <RegistrationNumber>2016CS178</RegistrationNumber>
+    <FirstName>Komal</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Shehzadi</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>3.51</GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS105</RegistrationNumber>
+    <FirstName>Muhammad</FirstName>
+    <MiddleName>Haris</MiddleName>
+    <LastName>Khan</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>3.4</GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS122</RegistrationNumber>
+    <FirstName>Hamza</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Farooq</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>3.5</GPA>
+  </Student>
+
+
+  <Student>
+    <RegistrationNumber>2016CS103</RegistrationNumber>
+    <FirstName>Sharjeel</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Ahmed</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>3.0</GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS107</RegistrationNumber>
+    <FirstName>Ayesha</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Batool</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>2.0 </GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS101</RegistrationNumber>
+    <FirstName>Ali</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Zahid</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>3.0</GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS102</RegistrationNumber>
+    <FirstName>Fahad</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Qureshi</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>2.7</GPA>
+  </Student>
+
+  <Student>
+    <RegistrationNumber>2016CS108</RegistrationNumber>
+    <FirstName>Fatima</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Zara</LastName>
+    <Address City= "Lahore" ZipCode="42" District = "Lahore"></Address>
+    <GPA>2.0 </GPA>
+  </Student>
+
+ <Student>
+    <RegistrationNumber>2016CS109</RegistrationNumber>
+    <FirstName>Malaika</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Saeed</LastName>
+    <Address City= "Islamabad" ZipCode="92" District = "Islamabad"></Address>
+    <GPA>3.45 </GPA>
+  </Student>
+  <Student>
+    <RegistrationNumber>2016CS106</RegistrationNumber>
+    <FirstName>Mohsin</FirstName>
+    <MiddleName></MiddleName>
+    <LastName>Ali</LastName>
+    <Address City= "Islamabad" ZipCode="92" District = "Islamabad"></Address>
+    <GPA>3.20</GPA>
+  </Student>
+  
+
+
+  <RegisteredCourses Name = "DBMS">
+    <RegistrationDate> 2019-04-3 </RegistrationDate>
+  </RegisteredCourses>
+
+
+  <Course CourseId ="100">
+    <Name>DBMS</Name>
+    <CreditHrs>3</CreditHrs>
+    <ContactHrs>2</ContactHrs>
+    <InstructorId>5</InstructorId>
+  </Course>
+  
+  <RegisteredCourses Name = "DataStructures">
+    <RegistrationDate> 2019-05-1 </RegistrationDate>
+  </RegisteredCourses>
+
+
+  <Course CourseId ="101">
+    <Name>DataStructures</Name>
+    <CreditHrs>3</CreditHrs>
+    <ContactHrs>3</ContactHrs>
+    <InstructorId>2</InstructorId>
+  </Course>
+  
+  
+  <RegisteredCourses Name = "PRV">
+    <RegistrationDate> 2019-05-3 </RegistrationDate>
+  </RegisteredCourses>
+
+
+  <Course CourseId ="102">
+    <Name>PRV</Name>
+    <CreditHrs>3</CreditHrs>
+    <ContactHrs>2</ContactHrs>
+    <InstructorId>4</InstructorId>
+  </Course>
+  
+  
+  
+</University>
+        

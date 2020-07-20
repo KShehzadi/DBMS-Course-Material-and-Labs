@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE University [
+   <!ELEMENT University (Course*, Student*, RegisteredCourses*, Instructor*)>
+   <!ELEMENT Student (#PCDATA)>
+   <!ATTLIST Student RegistrationNumber ID #REQUIRED
+                     FirstName CDATA #REQUIRED
+                     MiddleName CDATA #IMPLIED
+                     LastName CDATA #REQUIRED
+                     Address CDATA #IMPLIED
+                     GPA CDATA #REQUIRED
+   >
+  <!ELEMENT Instructor (#PCDATA)>
+   <!ATTLIST Instructor InstructorId ID #REQUIRED
+                        FirstName CDATA #REQUIRED
+                        MiddleName CDATA #IMPLIED
+                        LastName CDATA #REQUIRED
+                        Designation CDATA #REQUIRED
+   >
+ 
+ <!ELEMENT Course (#PCDATA)>
+   <!ATTLIST Course CourseId ID #REQUIRED
+                    CourseName CDATA #REQUIRED
+                    CreditHrs CDATA #IMPLIED
+                    ContactHrs CDATA #IMPLIED
+                    InstructorId IDREF #IMPLIED
+   >
+
+   <!ELEMENT RegisteredCourses (#PCDATA)>
+   <!ATTLIST RegisteredCourses RegistrationNumber IDREF #REQUIRED
+                               CourseId IDREF #REQUIRED
+                               RegistrationDate CDATA #REQUIRED
+   >
+  ]>
+
+
+
+
+<University> 
+     
+    <Course CourseId="Course101" CourseName="DBMS TH" CreditHrs="3" ContactHrs="1" InstructorId="Instructor1"></Course>
+    <Course CourseId="Course102" CourseName="DBMS Lab" CreditHrs="1" ContactHrs="1" InstructorId="Instructor2"></Course>
+    <Course CourseId="Course103" CourseName="PRV" CreditHrs="3" ContactHrs="3" InstructorId="Instructor3"></Course>
+    <Course CourseId="Course104" CourseName="PF TH" CreditHrs="3" ContactHrs="1" InstructorId="Instructor4"></Course>
+    <Course CourseId="Course105" CourseName="DS Lab" CreditHrs="1" ContactHrs="3" InstructorId="Instructor5"></Course>
+    <Course CourseId="Course106" CourseName="DS TH" CreditHrs="3" ContactHrs="3"></Course>
+    <Course CourseId="Course107" CourseName="AI Lab" CreditHrs="1" ContactHrs="1"></Course>
+    <Course CourseId="Course108" CourseName="AI TH" CreditHrs="3" ContactHrs="3"></Course>
+    <Course CourseId="Course109" CourseName="SE Lab" CreditHrs="1" ContactHrs="1"></Course>
+    <Course CourseId="Course110" CourseName="SE TH" CreditHrs="3" ContactHrs="1"></Course>
+   
+    
+    
+     
+    
+    <Student RegistrationNumber="Student2016CS101" FirstName="Ali" LastName="Raza" GPA="4.0"></Student>
+    <Student RegistrationNumber="Student2016CS102" FirstName="Sharjeel" LastName="Ahmed" GPA="3.9"></Student>
+    <Student RegistrationNumber="Student2016CS103" FirstName="Muhammad" MiddleName="Azeem" LastName="Raza" GPA="3.4"></Student>
+    <Student RegistrationNumber="Student2016CS104" FirstName="Ahmed" LastName="Raza" GPA="3.1"></Student>
+    <Student RegistrationNumber="Student2016CS105" FirstName="Arham" LastName="Raza" GPA="3.0"></Student>
+    
+    
+   
+   <RegisteredCourses RegistrationNumber="Student2016CS101" CourseId="Course101" RegistrationDate="02Dec 1998"></RegisteredCourses>
+    <RegisteredCourses RegistrationNumber="Student2016CS102" CourseId="Course102" RegistrationDate="02Dec 1998"></RegisteredCourses>
+    <RegisteredCourses RegistrationNumber="Student2016CS103" CourseId="Course103" RegistrationDate="02Dec 1998"></RegisteredCourses>
+    <RegisteredCourses RegistrationNumber="Student2016CS104" CourseId="Course104" RegistrationDate="02Dec 1998"></RegisteredCourses>
+    <RegisteredCourses RegistrationNumber="Student2016CS105" CourseId="Course105" RegistrationDate="02Dec 1998"></RegisteredCourses>
+    
+    <Instructor InstructorId="Instructor1" FirstName="Samyan" LastName="Wahla" Designation="Lecturer"></Instructor>
+    <Instructor InstructorId="Instructor2" FirstName="Muhammad" LastName="Afzal" Designation="Professor"></Instructor>
+    <Instructor InstructorId="Instructor3" FirstName="Irfan" LastName="Ch" Designation="Professor"></Instructor>
+    <Instructor InstructorId="Instructor4" FirstName="Hina" LastName="Khalid" Designation="Professor"></Instructor>
+    <Instructor InstructorId="Instructor5" FirstName="Sahar" LastName="Waqar" Designation="Lecturer"></Instructor>
+    
+    
+    
+    
+    
+  </University>

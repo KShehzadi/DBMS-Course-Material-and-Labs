@@ -1,0 +1,111 @@
+
+-- Question 1 --
+
+
+
+Create View question1 as
+SELECT [salesman_id]
+      ,[salesman_name]
+      ,[city]
+      ,[commission]
+  FROM [db_exercise].[dbo].[salesman]
+  WHERE city = 'New York';
+  
+  
+ -- Question 2 --
+
+ 
+ Create View question2 as
+SELECT [salesman_id]
+      ,[salesman_name] as name
+      ,[city]
+  FROM [db_exercise].[dbo].[salesman];
+  
+ --Question 3 --
+CREATE VIEW Question3 AS
+SELECT [salesman_id]
+      ,[salesman_name]
+      ,[city]
+      ,[commission]
+  FROM [db_exercise].[dbo].[salesman]
+  Where city = 'New York' AND commission > 0.13
+  
+  
+
+  
+-- Question 4 ---
+Create View Question4 AS
+SELECT [grade], COUNT(*) as NumberOfCustomers
+  FROM [db_exercise].[dbo].[customer]
+  GROUP BY grade
+
+-- Question 5 ----
+Create PROCEDURE prOrderWithNames
+AS
+SELECT orders.order_no,customer.customer_name,
+salesman.salesman_name
+  FROM [db_exercise].[dbo].[orders]
+  Join customer
+  On orders.customer_id = customer.customer_id
+  Join salesman
+  On orders.salesman_id = salesman.salesman_id
+GO  
+
+-- Question 6 ----
+Create PROCEDURE prDailyDetail
+AS
+SELECT [orders].order_date
+      ,AVG(order_no) as AverageOrders
+      ,Sum([purchase_amount]) as TotalAmount
+      ,Count([customer_id]) as NumberOfCustomers
+      ,Count([salesman_id]) as NumberOfSalesman
+	 
+  FROM [db_exercise].[dbo].[orders]
+  Group By order_date;
+
+GO
+
+-- Question 7 ---
+Create PROCEDURE prHieghesScore
+AS
+SELECT [customer_id]
+      ,[customer_name]
+      ,[city]
+      ,[grade]
+      ,[salesman_id]
+  FROM [db_exercise].[dbo].[customer]
+  Where grade IN (SELECT Max(grade) From customer);
+Go
+
+
+---Question 8 ---
+Create PROCEDURE prOrdersAgainestName
+AS
+
+SELECT  salesman.salesman_name,
+AVG(order_no) as AverageOrders,
+Count(order_no) as TotalOrders
+  FROM [db_exercise].[dbo].[orders]
+  Join salesman 
+  On orders.salesman_id = salesman.salesman_id
+  Group By salesman_name
+GO
+
+
+----Question 9----
+Create PROCEDURE prMultiCustomers
+AS
+SELECT [salesman_id], 
+Count(customer_id) as NumberOfCustomers
+  FROM [db_exercise].[dbo].[orders]
+  Group By salesman_id 
+  Having Count(*) > 1
+Go
+
+---Question 10---
+Create PROCEDURE prOrderOnDate
+AS
+SELECT *
+  FROM [db_exercise].[dbo].[orders]
+  WHERE order_date = '10-10-2012'
+Go

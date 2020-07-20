@@ -1,0 +1,113 @@
+Q1
+SELECT Name 
+FROM Department
+WHERE Budget = (SELECT MAX(Budget) FROM Department);
+***
+
+
+Q2
+SELECT Person.PersonID StudentId,
+ Person.FirstName +" "+ Person.LastName StudentName,
+ Sum(Credits) CreditHrs
+FROM Person
+JOIN StudentGrade 
+ON Person.PersonID = StudentGrade.StudentID
+JOIN Course
+ON Course.CourseID = StudentGrade.CourseID
+GROUP BY StudentGrade.StudentID;
+***
+
+
+Q3
+SELECT Person.FirstName +" "+ Person.LastName StudentName,
+Course.Title CourseTitle,
+StudentGrade.Grade StudentGarde
+FROM Person
+JOIN StudentGrade
+ON Person.PersonID = StudentGrade.StudentID
+JOIN Course
+ON StudentGrade.CourseID = Course.CourseID
+WHERE Person.HireDate IS NULL;
+***
+
+
+Q4
+SELECT Department.Name DepartmentName,
+COUNT(CourseID) CountOfCourses
+FROM Course
+JOIN Department
+ON Course.DepartmentID = Department.DepartmentID
+GROUP BY DepartmentID
+***
+
+
+Q5
+SELECT S1.FirstName +" "+ S1.LastName StudentName,
+S2.FirstName +" "+ S2.LastName InstructorName,
+S1.Title CourseTitle
+
+
+FROM StudentGrade JOIN
+ON StudentGrade.CourseID = Course.CourseID 
+JOIN Person 
+ON Person.PersonID = StudentGrade.StudentID AS S1,
+
+CourseInstructor JOIN Course
+ON CourseInstructor.CourseID = Course.CourseID
+JOIN Person
+ON Person.PersonID = CourseInstructor.PersonID AS S2
+
+WHERE S1.CourseID = S2.CourseID;
+***
+
+
+Q6
+SELECT Course.CourseID, 
+Course.Title AS CourseTitle
+FROM Course 
+JOIN OnlineCourse
+ON Course.CourseID = OnlineCourse.CourseID;
+***
+
+
+Q7
+SELECT Course.DepartmentID DeptId,
+C1.DepartmentName DeptName,
+COUNT(C2) CountOfOnsiteCourses,
+COUNT(C1) CountOfOnlineCourses
+FROM Course 
+JOIN OnlineCourse
+ON OnlineCourse.CourseID = Course.CourseID 
+JOIN Department
+Department.DepartmentID = Course.DepartmentID C1,
+Course
+JOIN OnsiteCourse
+ON OnsiteCourse.CourseID = Course.CourseID 
+JOIN Department
+Department.DepartmentID = Course.DepartmentID C2,
+WHERE C1.DepartmentID = C2.DepartmentID;
+***
+
+
+Q8
+SELECT Title CourseTitle,
+Credits CreditHours
+FROM Course
+WHERE Credits > 2;
+***
+
+Q9
+SELECT Person.FirstName+" "+Person.LastName InstructorName,
+OfficeAssignment.Location OfficeLocation
+FROM OfficeAssignment
+JOIN Person
+ON OfficeAssignment.InstructorID = Person.PersonID;
+***
+
+Q10
+SELECT YEAR(EnrollmentDate) Year,
+COUNT(*) CountOfEnrollments 
+FROM Person
+GROUP BY YEAR(EnrollmentDate)
+HAVING EnrollmentDate IS NOT NULL;
+***
